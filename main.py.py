@@ -1,3 +1,11 @@
+import os
+import urllib.request
+
+model_path = "fasterrcnn_model.pth"
+if not os.path.exists(model_path):
+    print("Downloading model...")
+    url = "https://drive.google.com/uc?export=download&id=1x-3968oXNe1G1peobX04_Pn7OHbFIj1-"
+    urllib.request.urlretrieve(url, model_path)
 import torch
 from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
